@@ -87,13 +87,13 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     font=('Helvetica', 30, 'bold'),
                     width=30,
                     height=3)
-welkomlabel.place(x=105, y=50)
+welkomlabel.place(x=160, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
 fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
-fotolabel.place(x=260, y=220)
-#y=220
+fotolabel.place(x=315, y=220)
+
 
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
@@ -104,7 +104,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  width=17,
                  height=3,
                  command=knop1)
-button1.place(x=280, y=500)
+button1.place(x=330, y=500)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Wis inhoud",
@@ -114,7 +114,7 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop2)
-button2.place(x=480, y=500)
+button2.place(x=530, y=500)
 
 
 textVeld = Listbox(master=resultaatframe,
