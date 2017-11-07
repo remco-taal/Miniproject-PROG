@@ -22,6 +22,8 @@ def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Neder
     button3['text'] = 'Current departure\ntime other station'
     button4['text'] = 'I want to\ngo abroad'
     welkomlabel['text'] = 'Welcome to NS'
+    photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
+
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ik wil naar\nAmsterdam'
@@ -29,7 +31,7 @@ def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de E
     button3['text'] = 'Actuele vertrektijd\nander station'
     button4['text'] = 'Ik wil naar\nHet buitenland'
     welkomlabel['text'] = 'Welkom bij NS'
-
+    photo['file'] = 'afbeeldingen\kaartlezer.PNG'
 
 root = Tk() # Maakt het venster
 root.overrideredirect(True)
@@ -54,15 +56,16 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     text='Welkom bij NS',
                     foreground='#001F6A',
                     background='#FFD720',
-                    font=('Helvetica', 30, 'bold'),
+                    font=('Helvetica', 60, 'bold'),
                     width=14,
                     height=3)
-welkomlabel.place(x=600, y=50)
+welkomlabel.place(x=615, y=50)
+
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
 fotolabel = Label(master=hoofdframe, image=photo)
-fotolabel.place(x=560, y=220)
+fotolabel.place(x=745, y=320)
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
                  text="Ik wil naar\nAmsterdam",
@@ -72,7 +75,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  width=17,
                  height=3,
                  command=knop1)
-button1.place(x=380, y=500)
+button1.place(x=565, y=650)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Actuele vertrektijd\nhuidig station",
@@ -82,7 +85,7 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop2)
-button2.place(x=580, y=500)
+button2.place(x=765, y=650)
 
 button3 = Button(master=hoofdframe,                                 #Knop 3
                  text="Actuele vertrektijd\nander station",
@@ -92,7 +95,7 @@ button3 = Button(master=hoofdframe,                                 #Knop 3
                  width=17,
                  height=3,
                  command=knop3)
-button3.place(x=780, y=500)
+button3.place(x=965, y=650)
 
 button4 = Button(master=hoofdframe,                                 #Knop 4
                  text="Ik wil naar\nHet buitenland",
@@ -102,7 +105,7 @@ button4 = Button(master=hoofdframe,                                 #Knop 4
                  width=17,
                  height=3,
                  command=knop4)
-button4.place(x=980, y=500)
+button4.place(x=1165, y=650)
 
 buttonNL = Button (master=onderframe,                               #Knop van Engels naar Nederlands
                    width=10,
