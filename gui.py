@@ -60,7 +60,7 @@ welkomlabel.place(x=615, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
-fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
+fotolabel = Label(master=hoofdframe, image=photo)
 fotolabel.place(x=745, y=320)
 
 
