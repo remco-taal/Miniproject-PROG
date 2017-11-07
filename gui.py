@@ -1,5 +1,5 @@
 from tkinter import *
-from PIL import Image, ImageTk
+#from PIL import Image, ImageTk
 
 def hoofdframe():
     pass
@@ -32,17 +32,21 @@ def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de E
 
 
 root = Tk() # Maakt het venster
+root.overrideredirect(True)
+root.overrideredirect(False)
+root.attributes('-fullscreen',True)
+
 
 hoofdframe = Frame(master=root,             #Venster gele gedeelte
                    background='#FFD720',
-                   width=10000,
-                   height=711)
+                   width=1920,
+                   height=980)
 hoofdframe.pack(side='top', fill=X)
 
 onderframe = Frame(master=root,             #Venster blauwe gedeelte
                    background='#001F6A',
-                   width=850,
-                   height=90)
+                   width=1920,
+                   height=100)
 onderframe.pack(side='bottom', fill=X)
 
 
