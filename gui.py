@@ -1,35 +1,31 @@
 from tkinter import *
+import os, xmltodict, requests
 #from PIL import Image, ImageTk
 
 def hoofdframe():
     pass
 
+
 def knop1():
+    global root
+    root.destroy()
+    os.system('gui_Huidig.py')
     pass
 
 def knop2():
     pass
 
-def knop3():
-    pass
-
-def knop4():
-    pass
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
-    button1['text'] = 'I want to go\nto Amsterdam'
-    button2['text'] = 'Current departure\ntime current station'
-    button3['text'] = 'Current departure\ntime other station'
-    button4['text'] = 'I want to\ngo abroad'
+    button1['text'] = 'Current departure\ntime current station'
+    button2['text'] = 'Current departure\ntime other station'
     welkomlabel['text'] = 'Welcome to NS'
     photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
 
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
-    button1['text'] = 'Ik wil naar\nAmsterdam'
-    button2['text'] = 'Actuele vertrektijd\nhuidig station'
-    button3['text'] = 'Actuele vertrektijd\nander station'
-    button4['text'] = 'Ik wil naar\nHet buitenland'
+    button1['text'] = 'Actuele vertrektijd\nhuidig station'
+    button2['text'] = 'Actuele vertrektijd\nander station'
     welkomlabel['text'] = 'Welkom bij NS'
     photo['file'] = 'afbeeldingen\kaartlezer.PNG'
 
@@ -67,45 +63,27 @@ photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaart
 fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
 fotolabel.place(x=745, y=320)
 
-button1 = Button(master=hoofdframe,                                 #Knop 1
-                 text="Ik wil naar\nAmsterdam",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop1)
-button1.place(x=565, y=650)
 
-button2 = Button(master=hoofdframe,                                 #Knop 2
+button1 = Button(master=hoofdframe,                                 #Knop 2
                  text="Actuele vertrektijd\nhuidig station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
                  width=17,
                  height=3,
-                 command=knop2)
-button2.place(x=765, y=650)
+                 command=knop1)
+button1.place(x=765, y=650)
 
-button3 = Button(master=hoofdframe,                                 #Knop 3
+button2 = Button(master=hoofdframe,                                 #Knop 3
                  text="Actuele vertrektijd\nander station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
                  width=17,
                  height=3,
-                 command=knop3)
-button3.place(x=965, y=650)
+                 command=knop2)
+button2.place(x=965, y=650)
 
-button4 = Button(master=hoofdframe,                                 #Knop 4
-                 text="Ik wil naar\nHet buitenland",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop4)
-button4.place(x=1165, y=650)
 
 buttonNL = Button (master=onderframe,                               #Knop van Engels naar Nederlands
                    width=10,
