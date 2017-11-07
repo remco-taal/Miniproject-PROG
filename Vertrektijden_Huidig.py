@@ -79,15 +79,7 @@ button1 = Button(master=hoofdframe,  # Knop 1
                  command=knop1)
 button1.place(x=380, y=500)
 
-button2 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Gaan met die\n banaan",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=start)
-button2.place(x=580, y=500)
+start()
 
 
 root.mainloop()
