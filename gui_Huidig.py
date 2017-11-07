@@ -45,15 +45,11 @@ def knop2():
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
     button1['text'] = 'I want to go\nto Amsterdam'
     button2['text'] = 'Current departure\ntime current station'
-    button3['text'] = 'Current departure\ntime other station'
-    button4['text'] = 'I want to\ngo abroad'
     welkomlabel['text'] = 'Welcome to NS'
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ik wil naar\nAmsterdam'
     button2['text'] = 'Actuele vertrektijd\nhuidig station'
-    button3['text'] = 'Actuele vertrektijd\nander station'
-    button4['text'] = 'Ik wil naar\nHet buitenland'
     welkomlabel['text'] = 'Welkom bij NS'
 
 
