@@ -46,11 +46,13 @@ def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Neder
     button1['text'] = 'I want to go\nto Amsterdam'
     button2['text'] = 'Current departure\ntime current station'
     welkomlabel['text'] = 'Welcome to NS'
+    photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ik wil naar\nAmsterdam'
     button2['text'] = 'Actuele vertrektijd\nhuidig station'
     welkomlabel['text'] = 'Welkom bij NS'
+    photo['file'] = 'afbeeldingen\kaartlezer.PNG'
 
 
 root = Tk()                                 # Maakt het venster
@@ -65,7 +67,7 @@ hoofdframe.pack(side='top', fill=X)
 
 resultaatframe = Frame(master=hoofdframe,             #Venster gele gedeelte
                    background='#FFD720',
-                   width=650,
+                   width=900,
                    height=980)
 
 resultaatframe.pack(side='right', fill='both')
@@ -85,12 +87,13 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     font=('Helvetica', 30, 'bold'),
                     width=30,
                     height=3)
-welkomlabel.place(x=420, y=50)
+welkomlabel.place(x=105, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
 fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
-fotolabel.place(x=560, y=220)
+fotolabel.place(x=260, y=220)
+#y=220
 
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
@@ -101,7 +104,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  width=17,
                  height=3,
                  command=knop1)
-button1.place(x=580, y=500)
+button1.place(x=280, y=500)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Wis inhoud",
@@ -111,13 +114,16 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop2)
-button2.place(x=780, y=500)
+button2.place(x=480, y=500)
 
 
 textVeld = Listbox(master=resultaatframe,
-                   height=60,
-                   width=105,
-                   bd=10)
+                   height=51,
+                   width=205,
+                   bd=10,
+                   font=('arial', 11, 'bold'),
+                   background="#FFD720",
+                   foreground="#001F6A")
 
 textVeld.place(x=0, y=0)
 
