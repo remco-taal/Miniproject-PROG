@@ -42,7 +42,6 @@ def knop1():
 
 root = Tk()  # Maakt het venster
 
-invoerVeld = StringVar()
 
 hoofdframe = Frame(master=root,  # Venster gele gedeelte
                    background='#FFD720',
