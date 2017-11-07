@@ -83,17 +83,17 @@ onderframe.pack(side='bottom', fill=X)
 
 
 welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tekst
-                    text='Welkom bij NS',
+                    text='Actuele reisinformatie Utrecht',
                     foreground='#001F6A',
                     background='#FFD720',
                     font=('Helvetica', 30, 'bold'),
-                    width=14,
+                    width=30,
                     height=3)
-welkomlabel.place(x=600, y=50)
+welkomlabel.place(x=420, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
-fotolabel = Label(master=hoofdframe, image=photo)
+fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
 fotolabel.place(x=560, y=220)
 
 
@@ -108,7 +108,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
 button1.place(x=580, y=500)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Get cancer",
+                 text="Wis inhoud",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
