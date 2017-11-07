@@ -4,25 +4,17 @@ import os
 
 
 
-
 def hoofdframe():
     pass
+
 
 def knop1():
     global root
     root.destroy()
-    os.system('Vertrektijden_Huidig.py')
-
-def knop2():
-    global root
-    root.destroy()
-    os.system('Vertrektijden_Anders.py')
-
+    os.system('Beginscherm.py')
 
 
 root = Tk() # Maakt het venster
-
-root.geometry('1450x1450+500+300')
 
 hoofdframe = Frame(master=root,             #Venster gele gedeelte
                    background='#FFD720',
@@ -51,7 +43,7 @@ fotolabel = Label(master=hoofdframe, image=photo)
 fotolabel.place(x=560, y=220)
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
-                 text="Actuele vertrektijden\n huidig station",
+                 text="Ga terug naar\n beginscherm",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
@@ -59,17 +51,5 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  height=3,
                  command=knop1)
 button1.place(x=380, y=500)
-
-button2 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Actuele vertrektijden\n ander station",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop2)
-button2.place(x=580, y=500)
-
-
 
 root.mainloop()

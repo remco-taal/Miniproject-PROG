@@ -4,7 +4,6 @@ import os
 
 
 
-
 def hoofdframe():
     pass
 
@@ -21,8 +20,6 @@ def knop2():
 
 
 root = Tk() # Maakt het venster
-
-root.geometry('1450x1450+500+300')
 
 hoofdframe = Frame(master=root,             #Venster gele gedeelte
                    background='#FFD720',

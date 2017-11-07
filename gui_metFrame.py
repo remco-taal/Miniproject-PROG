@@ -5,7 +5,7 @@ def hoofdframe():
     pass
 
 def knop1():
-    pass
+    root.attributes('-fullscreen', True)
 
 def knop2():
     pass
@@ -14,7 +14,7 @@ def knop3():
     pass
 
 def knop4():
-    pass
+    root.attributes('-fullscreen', False)
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
     button1['text'] = 'I want to go\nto Amsterdam'
@@ -22,8 +22,6 @@ def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Neder
     button3['text'] = 'Current departure\ntime other station'
     button4['text'] = 'I want to\ngo abroad'
     welkomlabel['text'] = 'Welcome to NS'
-    photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
-
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ik wil naar\nAmsterdam'
@@ -31,19 +29,24 @@ def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de E
     button3['text'] = 'Actuele vertrektijd\nander station'
     button4['text'] = 'Ik wil naar\nHet buitenland'
     welkomlabel['text'] = 'Welkom bij NS'
-    photo['file'] = 'afbeeldingen\kaartlezer.PNG'
+
 
 root = Tk() # Maakt het venster
-root.overrideredirect(True)
-root.overrideredirect(False)
-root.attributes('-fullscreen',True)
-
 
 hoofdframe = Frame(master=root,             #Venster gele gedeelte
                    background='#FFD720',
                    width=1920,
                    height=980)
+
 hoofdframe.pack(side='top', fill=X)
+
+resultaatframe = Frame(master=hoofdframe,             #Venster gele gedeelte
+                   background='#FFD720',
+                   width=650,
+                   height=980)
+
+resultaatframe.pack(side='right', fill='both')
+
 
 onderframe = Frame(master=root,             #Venster blauwe gedeelte
                    background='#001F6A',
@@ -56,26 +59,25 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     text='Welkom bij NS',
                     foreground='#001F6A',
                     background='#FFD720',
-                    font=('Helvetica', 60, 'bold'),
+                    font=('Helvetica', 30, 'bold'),
                     width=14,
                     height=3)
-welkomlabel.place(x=615, y=50)
-
+welkomlabel.place(x=600, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
 fotolabel = Label(master=hoofdframe, image=photo)
-fotolabel.place(x=745, y=320)
+fotolabel.place(x=560, y=220)
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
-                 text="Ik wil naar\nAmsterdam",
+                 text="Fullscreen",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
                  width=17,
                  height=3,
                  command=knop1)
-button1.place(x=565, y=650)
+button1.place(x=380, y=500)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Actuele vertrektijd\nhuidig station",
@@ -85,7 +87,7 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop2)
-button2.place(x=765, y=650)
+button2.place(x=580, y=500)
 
 button3 = Button(master=hoofdframe,                                 #Knop 3
                  text="Actuele vertrektijd\nander station",
@@ -95,17 +97,27 @@ button3 = Button(master=hoofdframe,                                 #Knop 3
                  width=17,
                  height=3,
                  command=knop3)
-button3.place(x=965, y=650)
+button3.place(x=780, y=500)
 
 button4 = Button(master=hoofdframe,                                 #Knop 4
-                 text="Ik wil naar\nHet buitenland",
+                 text="Windowed",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
                  width=17,
                  height=3,
                  command=knop4)
-button4.place(x=1165, y=650)
+button4.place(x=980, y=500)
+
+textVeld = Listbox(master=resultaatframe,
+                   height=60,
+                   width=105,
+                   bd=10)
+
+textVeld.place(x=0, y=0)
+
+
+
 
 buttonNL = Button (master=onderframe,                               #Knop van Engels naar Nederlands
                    width=10,
