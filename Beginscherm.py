@@ -8,21 +8,14 @@ def hoofdframe():
     pass
 
 def knop1():
-    pass
-
-def knop2():
-    pass
-
-
-def knop4():
     global root
     root.destroy()
-    os.system('Script_Mike.py')
-    pass
+    os.system('Vertrektijden_Huidig.py')
 
-
-def knop3():
-    pass
+def knop2():
+    global root
+    root.destroy()
+    os.system('Vertrektijden_Anders.py')
 
 
 
@@ -55,7 +48,7 @@ fotolabel = Label(master=hoofdframe, image=photo)
 fotolabel.place(x=560, y=220)
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
-                 text="Ik wil naar\n  Amsterdam",
+                 text="Actuele vertrektijden\n huidig station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
@@ -65,7 +58,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
 button1.place(x=380, y=500)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Kopen\nlos kaartje",
+                 text="Actuele vertrektijden\n ander station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
@@ -73,26 +66,6 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  height=3,
                  command=knop2)
 button2.place(x=580, y=500)
-
-button3 = Button(master=hoofdframe,                                 #Knop 3
-                 text="Kopen\nOV-Chipkaart",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop3)
-button3.place(x=780, y=500)
-
-button4 = Button(master=hoofdframe,                                 #Knop 4
-                 text="Ik wil naar\nHet buitenland",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop4)
-button4.place(x=980, y=500)
 
 
 
