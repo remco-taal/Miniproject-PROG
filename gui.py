@@ -40,7 +40,7 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     height=3)
 welkomlabel.place(x=600, y=50)
 
-photo = PhotoImage(file='kaartlezer.PNG')               #Foto kaartlezer
+photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
 fotolabel = Label(master=hoofdframe, image=photo)
 fotolabel.place(x=560, y=220)
 
@@ -84,6 +84,14 @@ button4 = Button(master=hoofdframe,                                 #Knop 4
                  command=knop4)
 button4.place(x=980, y=500)
 
+buttonNL = Button (master=onderframe,
+                   width=10,
+                   height=10)
+photoNL = PhotoImage (file='afbeeldingen\kroodwitblauw.png')
+buttonNL.config(image=photoNL,
+                width=1,
+                height=1)
 
+buttonNL.place(x=0, y=0)
 
 root.mainloop()
