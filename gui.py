@@ -64,7 +64,7 @@ welkomlabel.place(x=615, y=50)
 
 
 photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
-fotolabel = Label(master=hoofdframe, image=photo)
+fotolabel = Label(master=hoofdframe, image=photo, borderwidth=0)
 fotolabel.place(x=745, y=320)
 
 button1 = Button(master=hoofdframe,                                 #Knop 1
