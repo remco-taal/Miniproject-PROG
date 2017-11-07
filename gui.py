@@ -13,6 +13,9 @@ def knop1():
     pass
 
 def knop2():
+    global root
+    root.destroy()
+    os.system('gui_Anders.py')
     pass
 
 

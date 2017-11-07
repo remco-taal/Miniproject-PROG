@@ -28,7 +28,7 @@ def start():
             amount +=1
     else:
         foutcode = dictionary['error']['message']
-        label1 = Label(root,text=foutcode).place(x=150, y=100)
+        textVeld.insert(0, foutcode)
         request()
 
 def hoofdframe():
