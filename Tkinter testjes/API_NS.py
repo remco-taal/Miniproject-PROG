@@ -27,7 +27,7 @@ if 'error' not in dictionary:           #De XML bevat een dictionary error wanne
         eindbestemming = tijd['EindBestemming']
         spoor = tijd['VertrekSpoor']['#text']
         #print('Het begin station is: {} {:9} {} uur De eindbestemming is: {}'.format(station.capitalize(), treinSoort, vertrekTijd, eindbestemming))
-        print('{:3} {:5} {}'.format(spoor, 'test', eindbestemming))
+        print('U reist vanaf station {} de trein komt om {} de eindbestemming is {}'.format(station, vertrekTijd, eindbestemming))
 
 else:
     print(dictionary['error']['message'])

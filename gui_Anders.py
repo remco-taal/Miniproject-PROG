@@ -20,8 +20,7 @@ def start():
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
         index = 2
         global textVeld
-        textVeld.insert(0, '{:12} {:15} {:>30} {:<30}'.format('Vertrek', '  Spoor', 'Treinsoort',
-                                                              '               Bestemming'))
+        textVeld.insert(0, '{:15} {:9} {:>30} {:<30}'.format('Vertrek', '  Spoor', 'Treinsoort', '                  Bestemming'))
         textVeld.insert(1, '')
 
         for tijd in dictionary['ActueleVertrekTijden']['VertrekkendeTrein']:
@@ -166,7 +165,8 @@ textVeld.place(x=0, y=0)
 mEntry = Entry(master=hoofdframe,                               #Invoer veld om station in te voeren
                textvariable=invoerVeld,
                width=15,
-               font=('arial', 30))
+               font=('arial', 30),
+               foreground = '#001F6A')
 
 mEntry.place(x=355, y=250)
 
