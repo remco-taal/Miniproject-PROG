@@ -15,6 +15,7 @@ def start():
     global textVeld
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
         index = 0
+        welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
         textVeld.delete(0, END)
         for tijd in dictionary['ActueleVertrekTijden']['VertrekkendeTrein']:
             vertrekTijd = tijd['VertrekTijd']
@@ -24,6 +25,7 @@ def start():
             textVeld.insert(index, 'Het begin station is: {} de treinsoort is {:9} {} uur De eindbestemming is: {}'.format(station, treinSoort, vertrekTijd, eindbestemming))
             index += 1
     else:
+        welkomlabel['text'] = 'Foutieve invoer: ' + station.capitalize()
         textVeld.delete(0, END)                             #
         foutcode = dictionary['error']['message']
         textVeld.insert(0, foutcode)
@@ -87,7 +89,7 @@ onderframe.pack(side='bottom', fill=X)
 
 
 welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tekst
-                    text='Actuele reisinformatie Utrecht',
+                    text='Actuele reisinformatie ',
                     foreground='#001F6A',
                     background='#FFD720',
                     font=('Helvetica', 30, 'bold'),
