@@ -105,7 +105,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  width=17,
                  height=3,
                  command=knop1)
-button1.place(x=330, y=500)
+button1.place(x=330, y=400)
 
 button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Wis inhoud",
@@ -115,7 +115,7 @@ button2 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop2)
-button2.place(x=530, y=500)
+button2.place(x=530, y=400)
 
 button3 = Button(master=hoofdframe,                                 #Knop 2
                  text="Zoeken",
@@ -125,7 +125,7 @@ button3 = Button(master=hoofdframe,                                 #Knop 2
                  width=17,
                  height=3,
                  command=knop3)
-button3.place(x=530, y=500)
+button3.place(x=530, y=400)
 
 
 
@@ -142,9 +142,9 @@ textVeld.place(x=0, y=0)
 mEntry = Entry(master=hoofdframe,
                textvariable=invoerVeld,
                width=15,
-               font=('arial', 50))
+               font=('arial', 30))
 
-mEntry.place(x=100, y=200)
+mEntry.place(x=355, y=250)
 
 
 
