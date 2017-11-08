@@ -1,41 +1,38 @@
 from tkinter import *
 import os, xmltodict, requests
-#from PIL import Image, ImageTk
 
-def hoofdframe():
-    pass
 
 
 def knop1():
+    'Open GUI huidig station'
     global root
     root.destroy()
     os.system('gui_Huidig.py')
-    pass
 
 def knop2():
+    'Open GUI ander station'
     global root
     root.destroy()
     os.system('gui_Anders.py')
-    pass
 
 
-def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
-    button1['text'] = 'Current departure\ntime current station'
-    button2['text'] = 'Current departure\ntime other station'
+def nl_to_eng():
+    'Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels'
+    button1['text'] = 'Departure\ntimes current station'
+    button2['text'] = 'Departure\ntimes other station'
     welkomlabel['text'] = 'Welcome to NS'
     photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
 
 
-def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
-    button1['text'] = 'Actuele vertrektijd\nhuidig station'
-    button2['text'] = 'Actuele vertrektijd\nander station'
+def eng_to_nl():
+    'Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands'
+    button1['text'] = 'Actuele vertrektijden\nhuidig station'
+    button2['text'] = 'Actuele vertrektijden\nander station'
     welkomlabel['text'] = 'Welkom bij NS'
     photo['file'] = 'afbeeldingen\kaartlezer.PNG'
 
 root = Tk() # Maakt het venster
-root.overrideredirect(True)
-root.overrideredirect(False)
-root.attributes('-fullscreen',True)
+root.attributes('-fullscreen',True)         #Open fullscreen
 
 
 hoofdframe = Frame(master=root,             #Venster gele gedeelte
@@ -68,7 +65,7 @@ fotolabel.place(x=745, y=320)
 
 
 button1 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Actuele vertrektijd\nhuidig station",
+                 text="Actuele vertrektijden\nhuidig station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
@@ -78,7 +75,7 @@ button1 = Button(master=hoofdframe,                                 #Knop 2
 button1.place(x=765, y=650)
 
 button2 = Button(master=hoofdframe,                                 #Knop 3
-                 text="Actuele vertrektijd\nander station",
+                 text="Actuele vertrektijden\nander station",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),

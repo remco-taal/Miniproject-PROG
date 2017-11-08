@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import *                   #Benodigde imports
 import os, xmltodict, requests
 nederlands = True
 
@@ -14,6 +14,7 @@ def request():
 
 
 def start():
+    'Plaats de xml in een dictionary en zet de gegevens in eenlistbox'
     dictionary = xmltodict.parse(request())
     global textVeld
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
@@ -30,29 +31,25 @@ def start():
             eindbestemming = tijd['EindBestemming']
             spoor = tijd['VertrekSpoor']['#text']
             textVeld.insert(index, '{:12} {:^15} {:>30} {:>30}'.format(vertrekTijd, spoor, treinSoort, eindbestemming))
-            index += 1
+            index += 1                                                                                                          #Verhoog index met 1 bij elke waarde zodat alles onder elkaar staat
     else:
-        #welkomlabel['text'] = 'Actuele reisinformatie'
+        welkomlabel['text'] = 'Actuele reisinformatie'
         errorlabel['text'] = 'Error 404: ' + station.capitalize() + ' not found'                            #
         foutcode = dictionary['error']['message']
         textVeld.insert(0, foutcode)
-        request()
 
-
-
-
-def hoofdframe():
-    pass
 
 def knop1():
+    'Open het beginscherm'
     global root
-    root.destroy()
+    root.destroy()          #Open het beginscherm
     os.system('gui.py')
 
 
 
 
-def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
+def nl_to_eng():
+    'Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels'
     global nederlands
     nederlands = False
     button1['text'] = 'Go back'
@@ -64,7 +61,8 @@ def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Neder
         welkomlabel['text'] = 'Current travel information '
 
 
-def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
+def eng_to_nl():
+    'Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands'
     global nederlands
     nederlands = True
     button1['text'] = 'Ga terug'
@@ -98,7 +96,7 @@ hoofdframe = Frame(master=root,             #Venster gele gedeelte
 
 hoofdframe.pack(side='top', fill=X)
 
-resultaatframe = Frame(master=hoofdframe,             #Venster gele gedeelte
+resultaatframe = Frame(master=hoofdframe,             #Venster gele gedeelte voor de listbox
                    background='#FFD720',
                    width=900,
                    height=980)
@@ -155,7 +153,7 @@ button2.place(x=530, y=400)
 
 
 
-textVeld = Listbox(master=resultaatframe,
+textVeld = Listbox(master=resultaatframe,                       #Listbox om resultaten API weer te geven
                    height=38,
                    width=72,
                    bd=15,
@@ -165,7 +163,7 @@ textVeld = Listbox(master=resultaatframe,
 
 textVeld.place(x=0, y=0)
 
-mEntry = Entry(master=hoofdframe,
+mEntry = Entry(master=hoofdframe,                               #Invoer veld om station in te voeren
                textvariable=invoerVeld,
                width=15,
                font=('arial', 30))
