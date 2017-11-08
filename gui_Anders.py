@@ -50,17 +50,18 @@ def knop1():
 
 def knop3():
     start()
+    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
 
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
     button1['text'] = 'Go back'
     button3['text'] = 'Search'
-    welkomlabel['text'] = 'Current travel information '
+    welkomlabel['text'] = 'Current travel information ' + station.capitalize()
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ga terug'
     button3['text'] = 'Zoeken'
-    welkomlabel['text'] = 'Actuele reisinformatie '
+    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
 
 
 
