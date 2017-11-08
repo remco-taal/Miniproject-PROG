@@ -14,16 +14,19 @@ def start():
     dictionary = xmltodict.parse(request())
     global textVeld
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
-        index = 0
-        welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
-        errorlabel['text'] = ''
-        textVeld.delete(0, END)
+        index = 2
+        global textVeld
+        textVeld.insert(0, '{:12} {:15} {:>30} {:<30}'.format('Vertrek', '  Spoor', 'Treinsoort',
+                                                              '               Bestemming'))
+        textVeld.insert(1, '')
+
         for tijd in dictionary['ActueleVertrekTijden']['VertrekkendeTrein']:
             vertrekTijd = tijd['VertrekTijd']
             vertrekTijd = vertrekTijd[11:19]
             treinSoort = tijd['TreinSoort']
             eindbestemming = tijd['EindBestemming']
-            textVeld.insert(index, 'Het begin station is: {} de treinsoort is {:9} {} uur De eindbestemming is: {}'.format(station, treinSoort, vertrekTijd, eindbestemming))
+            spoor = tijd['VertrekSpoor']['#text']
+            textVeld.insert(index, '{:12} {:^15} {:>30} {:>30}'.format(vertrekTijd, spoor, treinSoort, eindbestemming))
             index += 1
     else:
         welkomlabel['text'] = 'Actuele reisinformatie'
@@ -44,8 +47,6 @@ def knop1():
     root.destroy()
     os.system('gui.py')
 
-def knop2():
-    textVeld.delete(0, END)
 
 def knop3():
     start()
@@ -53,14 +54,13 @@ def knop3():
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
     button1['text'] = 'Go back'
-    button2['text'] = 'Delete content'
-    welkomlabel['text'] = 'Current travel information ' + station.capitalize()
-
+    button3['text'] = 'Search'
+    welkomlabel['text'] = 'Current travel information '
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ga terug'
-    button2['text'] = 'Wis inhoud'
-    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
+    button3['text'] = 'Zoeken'
+    welkomlabel['text'] = 'Actuele reisinformatie '
 
 
 
@@ -119,15 +119,6 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
                  command=knop1)
 button1.place(x=330, y=400)
 
-button2 = Button(master=hoofdframe,                                 #Knop 2
-                 text="Wis inhoud",
-                 foreground="white",
-                 background="#001F6A",
-                 font=('arial', 12, 'bold'),
-                 width=17,
-                 height=3,
-                 command=knop2)
-button2.place(x=530, y=400)
 
 button3 = Button(master=hoofdframe,                                 #Knop 2
                  text="Zoeken",
