@@ -7,13 +7,13 @@ def knop1():
     'Open GUI huidig station'
     global root
     root.destroy()
-    os.system('gui_Huidig.py')
+    os.system('Huidig_Station.py')
 
 def knop2():
     'Open GUI ander station'
     global root
     root.destroy()
-    os.system('gui_Anders.py')
+    os.system('Ander_Station.py')
 
 
 def nl_to_eng():

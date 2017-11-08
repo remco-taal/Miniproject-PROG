@@ -42,7 +42,7 @@ def knop1():
     'Open het beginscherm'
     global root
     root.destroy()          #Open het beginscherm
-    os.system('gui.py')
+    os.system('Hoofdscherm.py')
 
 
 
