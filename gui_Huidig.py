@@ -43,15 +43,15 @@ def knop2():
 
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
-    button1['text'] = 'I want to go\nto Amsterdam'
-    button2['text'] = 'Current departure\ntime current station'
-    welkomlabel['text'] = 'Welcome to NS'
+    button1['text'] = 'Go back'
+    button2['text'] = 'Delete content'
+    welkomlabel['text'] = 'Current travel information Utrecht'
     photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
-    button1['text'] = 'Ik wil naar\nAmsterdam'
-    button2['text'] = 'Actuele vertrektijd\nhuidig station'
-    welkomlabel['text'] = 'Welkom bij NS'
+    button1['text'] = 'Ga terug'
+    button2['text'] = 'Wis inhoud'
+    welkomlabel['text'] = 'Actuele reisinformatie Utrecht'
     photo['file'] = 'afbeeldingen\kaartlezer.PNG'
 
 
@@ -88,11 +88,6 @@ welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tek
                     width=30,
                     height=3)
 welkomlabel.place(x=160, y=50)
-
-
-photo = PhotoImage(file='afbeeldingen\kaartlezer.PNG')               #Foto kaartlezer
-fotolabel = Label(master=hoofdframe, image=photo, borderwidth=-1)
-fotolabel.place(x=315, y=220)
 
 
 
