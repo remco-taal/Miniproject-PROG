@@ -25,7 +25,7 @@ def start():
             textVeld.insert(index, 'Het begin station is: {} de treinsoort is {:9} {} uur De eindbestemming is: {}'.format(station, treinSoort, vertrekTijd, eindbestemming))
             index += 1
     else:
-        welkomlabel['text'] = 'Foutieve invoer: ' + station.capitalize()
+        welkomlabel['text'] = 'Actuele reisinformatie'
         textVeld.delete(0, END)                             #
         foutcode = dictionary['error']['message']
         textVeld.insert(0, foutcode)
@@ -52,13 +52,13 @@ def knop3():
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
     button1['text'] = 'Go back'
     button2['text'] = 'Delete content'
-    welkomlabel['text'] = 'Current travel information Utrecht'
+    welkomlabel['text'] = 'Current travel information ' + station.capitalize()
 
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ga terug'
     button2['text'] = 'Wis inhoud'
-    welkomlabel['text'] = 'Actuele reisinformatie Utrecht'
+    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
 
 
 
@@ -89,7 +89,7 @@ onderframe.pack(side='bottom', fill=X)
 
 
 welkomlabel = Label(master=hoofdframe,                        #Welkom bij NS tekst
-                    text='Actuele reisinformatie ',
+                    text='Actuele reisinformatie',
                     foreground='#001F6A',
                     background='#FFD720',
                     font=('Helvetica', 30, 'bold'),
