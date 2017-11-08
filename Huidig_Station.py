@@ -35,7 +35,7 @@ def start():
 def knop1():
     global root
     root.destroy()
-    os.system('Hoofscherm.py')
+    os.system('Hoofdscherm.py')
 
 def knop2():
     textVeld.delete(0, END)
