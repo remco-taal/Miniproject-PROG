@@ -51,13 +51,13 @@ def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Neder
     button1['text'] = 'Go back'
     button2['text'] = 'Delete content'
     welkomlabel['text'] = 'Current travel information Utrecht'
-    photo['file'] = 'afbeeldingen\kaartlezerengels.PNG'
+
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
     button1['text'] = 'Ga terug'
     button2['text'] = 'Wis inhoud'
     welkomlabel['text'] = 'Actuele reisinformatie Utrecht'
-    photo['file'] = 'afbeeldingen\kaartlezer.PNG'
+
 
 
 root = Tk()                                 # Maakt het venster
