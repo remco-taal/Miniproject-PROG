@@ -14,7 +14,8 @@ def start():
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
         index = 2
         global textVeld
-        textVeld.insert(0, '{:12} {:50} {:10} {:17}'.format('Vertrek', 'Bestemming', 'Spoor', 'Extra'))
+        textVeld.insert(0, '{:12} {:15} {:>30} {:<30}'.format('Vertrek', '  Spoor', 'Treinsoort', '               Bestemming'))
+        textVeld.insert(1, '')
 
         for tijd in dictionary['ActueleVertrekTijden']['VertrekkendeTrein']:
             vertrekTijd = tijd['VertrekTijd']
@@ -22,7 +23,7 @@ def start():
             treinSoort = tijd['TreinSoort']
             eindbestemming = tijd['EindBestemming']
             spoor = tijd['VertrekSpoor']['#text']
-            textVeld.insert(index, '{:12} {:50} {:10} {:17}'.format(vertrekTijd, eindbestemming, spoor, treinSoort))
+            textVeld.insert(index, '{:12} {:^15} {:>30} {:>30}'.format(vertrekTijd, spoor, treinSoort, eindbestemming))
             index += 1
     else:
         foutcode = dictionary['error']['message']
@@ -112,10 +113,10 @@ button2.place(x=530, y=500)
 
 
 textVeld = Listbox(master=resultaatframe,
-                   height=51,
-                   width=205,
-                   bd=10,
-                   font=('arial', 11, 'bold'),
+                   height=38,
+                   width=72,
+                   bd=15,
+                   font=('arial', 16, 'bold'),
                    background="#FFD720",
                    foreground="#001F6A")
 
