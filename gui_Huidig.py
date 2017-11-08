@@ -12,20 +12,21 @@ def start():
     dictionary = xmltodict.parse(request())
 
     if 'error' not in dictionary:  # De XML bevat een dictionary error wanneer een verkeerde waarde wordt ingevuld
-        index = 0
-        spacing = 20
+        index = 2
         global textVeld
+        textVeld.insert(0, '{:12} {:50} {:10} {:17}'.format('Vertrek', 'Bestemming', 'Spoor', 'Extra'))
+
         for tijd in dictionary['ActueleVertrekTijden']['VertrekkendeTrein']:
             vertrekTijd = tijd['VertrekTijd']
             vertrekTijd = vertrekTijd[11:19]
             treinSoort = tijd['TreinSoort']
             eindbestemming = tijd['EindBestemming']
-            textVeld.insert(index, 'Het begin station is: Utrecht de treinsoort is {:9} {} uur De eindbestemming is: {}'.format(treinSoort, vertrekTijd, eindbestemming))
+            spoor = tijd['VertrekSpoor']['#text']
+            textVeld.insert(index, '{:12} {:50} {:10} {:17}'.format(vertrekTijd, eindbestemming, spoor, treinSoort))
             index += 1
     else:
         foutcode = dictionary['error']['message']
         textVeld.insert(0, foutcode)
-        request()
 
 
 
