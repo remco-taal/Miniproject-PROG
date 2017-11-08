@@ -1,5 +1,6 @@
 from tkinter import *
 import os, xmltodict, requests
+nederlands = True
 
 def request():
     'Stuurt een request naar de server van NS en returnt een XML'
@@ -9,6 +10,8 @@ def request():
     api_url = 'http://webservices.ns.nl/ns-api-avt?station=' + station
     response = requests.get(api_url, auth=auth_details)
     return response.text
+
+
 
 def start():
     dictionary = xmltodict.parse(request())
@@ -29,9 +32,8 @@ def start():
             textVeld.insert(index, '{:12} {:^15} {:>30} {:>30}'.format(vertrekTijd, spoor, treinSoort, eindbestemming))
             index += 1
     else:
-        welkomlabel['text'] = 'Actuele reisinformatie'
-        errorlabel['text'] = station.capitalize() + ' is geen geldig station'
-        textVeld.delete(0, END)                             #
+        #welkomlabel['text'] = 'Actuele reisinformatie'
+        errorlabel['text'] = 'Error 404: ' + station.capitalize() + ' not found'                            #
         foutcode = dictionary['error']['message']
         textVeld.insert(0, foutcode)
         request()
@@ -48,22 +50,42 @@ def knop1():
     os.system('gui.py')
 
 
-def knop3():
-    start()
-    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
 
 
 def nl_to_eng(): #Wanneer er op de Engelse vlag wordt gedrukt veranderd de Nederlandstalige tekst naar het Engels
+    global nederlands
+    nederlands = False
     button1['text'] = 'Go back'
-    button3['text'] = 'Search'
-    welkomlabel['text'] = 'Current travel information ' + station.capitalize()
+    button2['text'] = 'Search'
+    dictionary = xmltodict.parse(request())
+    if 'error' not in dictionary:
+        welkomlabel['text'] = 'Current travel information ' + station.capitalize()
+    else:
+        welkomlabel['text'] = 'Current travel information '
+
 
 def eng_to_nl(): #Wanneer er op de Nederlandse vlag wordt gedrukt veranderd de Engelstalige tekst naar het Nederlands
+    global nederlands
+    nederlands = True
     button1['text'] = 'Ga terug'
-    button3['text'] = 'Zoeken'
-    welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
+    button2['text'] = 'Zoeken'
+    dictionary = xmltodict.parse(request())
+    if 'error' not in dictionary:
+        welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
+    else:
+        welkomlabel['text'] = 'Actuele reisinformatie '
 
+def knop2():
+    textVeld.delete(0, END)
+    start()
+    dictionary = xmltodict.parse(request())
+    if 'error' not in dictionary and nederlands == True:
+        welkomlabel['text'] = 'Actuele reisinformatie ' + station.capitalize()
+        errorlabel['text'] = ''
 
+    if 'error' not in dictionary and nederlands == False:
+        welkomlabel['text'] = 'Current travel information ' + station.capitalize()
+        errorlabel['text'] = ''
 
 root = Tk()                                 # Maakt het venster
 invoerVeld = StringVar()
@@ -121,23 +143,23 @@ button1 = Button(master=hoofdframe,                                 #Knop 1
 button1.place(x=330, y=400)
 
 
-button3 = Button(master=hoofdframe,                                 #Knop 2
+button2 = Button(master=hoofdframe,                                 #Knop 2
                  text="Zoeken",
                  foreground="white",
                  background="#001F6A",
                  font=('arial', 12, 'bold'),
                  width=17,
                  height=3,
-                 command=knop3)
-button3.place(x=530, y=400)
+                 command=knop2)
+button2.place(x=530, y=400)
 
 
 
 textVeld = Listbox(master=resultaatframe,
-                   height=51,
-                   width=205,
-                   bd=10,
-                   font=('arial', 11, 'bold'),
+                   height=38,
+                   width=72,
+                   bd=15,
+                   font=('arial', 16, 'bold'),
                    background="#FFD720",
                    foreground="#001F6A")
 
